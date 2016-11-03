@@ -3,7 +3,7 @@
 #define MIN_K_value 100
 #define MAX_K_value 200
 int K_value = 100;
-MSGEQ7 eq;
+MSGEQ7 eq; //객체생
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(40, 6, NEO_GRB + NEO_KHZ800);
 
 uint32_t color_map[40] =
@@ -23,7 +23,7 @@ void setup() {
 }
 int cnt = 0;
 void loop() {
-  eq.poll();//오디오 정보를 갱신합니다.
+  eq.poll();//아두이노 디지털 핀들에 들어오는 전압을 읽고 출력하는 digitalWrite함수를 이용하여 다중입출력을 제어하는 poll함수
   int max_v = 0;
   pixels.clear();
   for(int i = 0;i < 7;i++){//입력받은 신호에 따라 네오픽셀을 제어
