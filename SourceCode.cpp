@@ -3,7 +3,7 @@
 #define MIN_K_value 100
 #define MAX_K_value 200
 int K_value = 100;
-MSGEQ7 eq; //객체생
+MSGEQ7 eq;
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(40, 6, NEO_GRB + NEO_KHZ800);
 
 uint32_t color_map[40] =
