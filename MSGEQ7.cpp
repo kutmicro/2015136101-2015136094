@@ -37,10 +37,10 @@ void MSGEQ7::init()
 	analogReference(DEFAULT);
 }
 
-void MSGEQ7::poll()
+void MSGEQ7::poll() //다중입출력 함수
 {
- digitalWrite(MSGEQ7::resetPin, HIGH);
- digitalWrite(MSGEQ7::resetPin, LOW);
+ digitalWrite(MSGEQ7::resetPin, HIGH); //아두이노 디지털 핀들에 들어오는 전압을 읽고 출력하는 digitalWrite함수 on
+ digitalWrite(MSGEQ7::resetPin, LOW); //off
 
  for (int i = 0; i < 7; i++)
  {
