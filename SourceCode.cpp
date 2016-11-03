@@ -42,9 +42,9 @@ void loop() {
       on_pixel(7+(8*j));
     }
   }
-  K_value = constrain(max_v/5,MIN_K_value,MAX_K_value);//5등분 분할의 기준을 음악의 최대값의 크기에 맞게 조절
+  K_value = constrain(max_v/5,MIN_K_value,MAX_K_value);//5등분 분할의 기준을 음악의 최대값의 크기에 맞게 조절(변수 max_v/5의 값을 MIN_K_value~MAX_K_value 사이의 값으로 한정한다.)
   pixels.show();
-  delay(100);
+  delay(100); // 0.1 초 딜레이를 준다.
 }
 
 void on_pixel(int index){
