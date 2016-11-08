@@ -3,7 +3,7 @@
 #define MIN_K_value 100
 #define MAX_K_value 200
 int K_value = 100;
-MSGEQ7 eq; //객체생
+MSGEQ7 eq;
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(40, 6, NEO_GRB + NEO_KHZ800);
 
 uint32_t color_map[40] =
@@ -34,14 +34,14 @@ void loop() {
     max_v = (v>max_v? v:max_v); //v와 max_v중 큰값을 max_v에 저장
     for(int j = 0;j < 5;j++){ //네오픽셀의 5번째 행까지 반복
       if(v > K_value*(5-j)){ //v값이 K_value*(5-j)보다 크면
-        on_pixel(i+(8*j)); //color_map에 설정된 값으로 설정?????????????????????????
+        on_pixel(i+(8*j)); //color_map[i+(8*j)]에 설정된 값으로 설정?????????????????????????
       }
     }
   }
    //마지막 열을 표시한다 (5행 반복)
   for(int j = 0;j < 5;j++){//최대음량을 마지막 줄에 표시
     if(max_v > K_value*(5-j)){ //저장한 max_v값이 K_value*(5-j)값보다 크면
-      on_pixel(7+(8*j)); //color_map에 설정된 값으로 설정????????????????????????
+      on_pixel(7+(8*j)); //color_map[7+(8*j)]에 설정된 값으로 설정????????????????????????
     }
   }
   K_value = constrain(max_v/5,MIN_K_value,MAX_K_value);//5등분 분할의 기준을 음악의 최대값의 크기에 맞게 조절(변수 max_v/5의 값을 MIN_K_value~MAX_K_value 사이의 값으로 한정한다.)
