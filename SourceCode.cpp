@@ -4,7 +4,7 @@
 #define MAX_K_value 200
 int K_value = 100;
 MSGEQ7 eq;
-Adafruit_NeoPixel pixels = Adafruit_NeoPixel(40, 6, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel pixels = Adafruit_NeoPixel(40, 6, NEO_GRB + NEO_KHZ800); //네오픽셀LED개수 40개, 아두이노 6번핀에 연결
 
 uint32_t color_map[40] =
 { //위치별 픽셀 색상설정. 
@@ -45,7 +45,7 @@ void loop() {
     }
   }
   K_value = constrain(max_v/5,MIN_K_value,MAX_K_value);//5등분 분할의 기준을 음악의 최대값의 크기에 맞게 조절(변수 max_v/5의 값을 MIN_K_value~MAX_K_value 사이의 값으로 한정한다.)
-  pixels.show();
+  pixels.show(); //네오픽셀의 값을 출력
   delay(100); // 0.1 초 딜레이를 준다.
 }
 
