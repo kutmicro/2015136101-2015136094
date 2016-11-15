@@ -4,8 +4,8 @@
 #define MAX_K_value 200
 int K_value = 100;
 MSGEQ7 eq;
-Adafruit_NeoPixel pixels = Adafruit_NeoPixel(40, 6, NEO_GRB + NEO_KHZ800);
-//Adafruit_NeoPixel(LED개수, 네오픽셀이 연결된 아두이노의 핀번호, 네오픽셀의 타입에 따라 바뀌는 flag???)
+Adafruit_NeoPixel pixels = Adafruit_NeoPixel(40, 6, NEO_GRB + NEO_KHZ800); ////네오픽셀LED의 개수, 네오픽셀이 연결된 아두이노의 핀번호, 네오픽셀의 타입에 따라 바뀌는 flag
+
 
 uint32_t color_map[40] =
 { //위치별 픽셀 색상설정. 
@@ -18,7 +18,7 @@ uint32_t color_map[40] =
 
 void setup() {
 	eq.init();//이퀄라이저를 사용하기 시작
-	pixels.begin();//네오픽셀을 사용하기 시작
+	pixels.begin();//네오픽셀을 초기화 하기위해 모든 LED를 OFF 시킴(모든 명령이나 제어문 제거)
 	pixels.clear();//네오픽셀 초기화
 }
 int cnt = 0;
@@ -52,7 +52,7 @@ void loop() {
 	K_value = constrain(max_v / 5, MIN_K_value, MAX_K_value);
 	// max_v/5의 값을 ( MIN_K_value ~ MAX_K_value ) 사이의 값으로 한정
 	//5등분 분할의 기준을 음악의 최대값의 크기에 맞게 조절
-	pixels.show();
+	pixels.show(); ////코드에서 작성한 명령을 NeoPixel로 넘겨 실제로 LED를 켜고 끄는 명령을 하게 하는 함수
 	delay(100); // 0.1 초 딜레이를 준다.
 }
 
