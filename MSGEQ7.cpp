@@ -15,6 +15,7 @@ void MSGEQ7::init(int left, int right, int strobePin, int resetPin)
 	MSGEQ7::strobePin = strobePin;
 	MSGEQ7::resetPin = resetPin;
 
+	//- pinMode(pin, mode) : 특정 디지털용 pin을 입력용으로 할지 출력용으로 할지 설정
 	pinMode(MSGEQ7::L_pin, INPUT); // 입력 핀으로 설정
 	pinMode(MSGEQ7::R_pin, INPUT);
 	pinMode(MSGEQ7::strobePin, OUTPUT); // 출력 핀으로 설정
