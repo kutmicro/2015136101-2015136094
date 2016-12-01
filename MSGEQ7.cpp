@@ -37,9 +37,9 @@ void MSGEQ7::init()
 void MSGEQ7::poll() //다중입출력 함수
 {
 	digitalWrite(MSGEQ7::resetPin, HIGH); //전압 on
-	//?????????????????????????????????????
 	digitalWrite(MSGEQ7::resetPin, LOW); //전압 off
 	//digitalWrite(핀, 모드) HIGH =1, LOW =0
+	//
 
 	for (int i = 0; i < 7; i++){
 		digitalWrite(MSGEQ7::strobePin, LOW);
@@ -54,8 +54,8 @@ void MSGEQ7::poll() //다중입출력 함수
 		//strobePin에 전압을 준다
 	}
 
-	digitalWrite(MSGEQ7::resetPin, LOW); //resetPin에 전압 0??????????
-	digitalWrite(MSGEQ7::strobePin, HIGH); //strobePin에 전압을 준다?????????
+	digitalWrite(MSGEQ7::resetPin, LOW); //  확실히 하기 위해
+	digitalWrite(MSGEQ7::strobePin, HIGH); //
 	delay(10); //0.001초 딜레이
 }
 
