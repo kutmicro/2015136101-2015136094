@@ -1,0 +1,30 @@
+#include <MSGEQ7.h>
+#define MIN_K_value 100
+#define MAX_K_value 200
+int K_value = 100;
+MSGEQ7 eq;
+
+void setup() {
+  Serial.begin(9600);
+  eq.init();//이퀄라이저를 사용하기 시작
+}
+void loop() {
+  eq.poll();//digitalWrite함수를 이용하여 다중입출력을 제어하는 poll함수
+  //소리 입력 받음
+  int max_v = 0;
+  for (int i = 0; i < 8; i++) {//입력받은 신호에 따라 네오픽셀을 제어
+    int l = eq.getLValue(i); //i번째의 spectrumLvalues 값
+    int r = eq.getRValue(i); //i번째의 spectrumRvalues 값
+    int v = (l<r ? r : l); // l과r중 큰갑을 v에 저장
+    max_v = (v>max_v ? v : max_v); //v와 max_v중 큰값을 max_v에 저장
+  }
+  
+  K_value = constrain(max_v / 5, MIN_K_value, MAX_K_value);
+  // max_v/5의 값을 ( MIN_K_value ~ MAX_K_value ) 사이의 값으로 한정
+  //5등분 분할의 기준을 음악의 최대값의 크기에 맞게 조절
+  Serial.println(max_v);
+  delay(100); // 0.1 초 딜레이를 준다.
+}
+
+void on_pixel(int index) {
+}
