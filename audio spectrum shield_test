@@ -13,10 +13,8 @@ void loop() {
   //소리 입력 받음
   int max_v = 0;
   for (int i = 0; i < 8; i++) {//입력받은 신호에 따라 네오픽셀을 제어
-    int l = eq.getLValue(i); //i번째의 spectrumLvalues 값
-    int r = eq.getRValue(i); //i번째의 spectrumRvalues 값
-    int v = (l<r ? r : l); // l과r중 큰갑을 v에 저장
-    max_v = (v>max_v ? v : max_v); //v와 max_v중 큰값을 max_v에 저장
+   int p = eq.getValue(i); // i번째의 spectrumValue값
+    max_v = (p>max_v ? p : max_v); //v와 max_v중 큰값을 max_v에 저장
   }
   
   K_value = constrain(max_v / 5, MIN_K_value, MAX_K_value);
