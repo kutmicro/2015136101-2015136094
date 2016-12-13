@@ -26,8 +26,6 @@ void on_pixel(int index) {
   pixels.setPixelColor(index, color_map[index]); //index위치에 색상을 설정
 }
 
-int cnt = 0;
-
 void loop() {
   eq.poll(); //digitalWrite함수를 이용하여 다중입출력을 제어하는 poll함수
   //소리 입력 받음
